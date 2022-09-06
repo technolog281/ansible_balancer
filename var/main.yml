@@ -1,0 +1,26 @@
+---
+# Keepalived config
+keepalived_bind_interface: eth0
+keepalived_vip: 172.18.0.8
+keepalived_type_master: MASTER
+keepalived_type_backup: BACKUP
+
+# HAProxy setting
+haproxy_bind_address: 172.18.0.8
+haproxy_user: haproxy
+haproxy_major_version: 2.5
+haproxy_minor_version: 8
+haproxy_download_url: "http://www.haproxy.org/download/{{ haproxy_major_version }}/src/haproxy-{{ haproxy_major_version }}.{{ haproxy_minor_version }}.tar.gz"
+haproxy_src_dir: /tmp
+haproxy_make_option: TARGET=linux2628 CPU=x86_64 USE_OPENSSL=1 USE_ZLIB=1 USE_PCRE=1
+haproxy_ws_1_name: ws-1
+haproxy_ws_2_name: ws-2
+haproxy_ws_1_ip: 192.168.0.18
+haproxy_ws_2_ip: 192.168.0.19
+
+#Nginx config
+server_name: web-server-1
+server2_name: web-server-2
+conf_file: /etc/nginx/sites-available/default
+inventory_hostname_1: Server 1
+inventory_hostname_2: Server 2

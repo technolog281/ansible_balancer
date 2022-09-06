@@ -1,0 +1,10 @@
+vrrp_instance VI_1 {
+    state {{ keepalived_type_master }}                 # Keepalived state.
+    interface eth0               # Please replace this interface for yourself
+    virtual_router_id 40         # Please replace this id for yourself
+    priority 110                 # Please replace this value for yourself
+    virtual_ipaddress {
+        {{ keepalived_vip }}             # Please replace this VIP for yourself
+    }
+    nopreempt
+}
